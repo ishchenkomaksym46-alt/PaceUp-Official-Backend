@@ -397,6 +397,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Trainings: 'Trainings',
   Users: 'Users'
 } as const
 
@@ -413,10 +414,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "users"
+    modelProps: "trainings" | "users"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Trainings: {
+      payload: Prisma.$TrainingsPayload<ExtArgs>
+      fields: Prisma.TrainingsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TrainingsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TrainingsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        findFirst: {
+          args: Prisma.TrainingsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TrainingsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        findMany: {
+          args: Prisma.TrainingsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>[]
+        }
+        create: {
+          args: Prisma.TrainingsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        createMany: {
+          args: Prisma.TrainingsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TrainingsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>[]
+        }
+        delete: {
+          args: Prisma.TrainingsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        update: {
+          args: Prisma.TrainingsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        deleteMany: {
+          args: Prisma.TrainingsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TrainingsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TrainingsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>[]
+        }
+        upsert: {
+          args: Prisma.TrainingsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrainingsPayload>
+        }
+        aggregate: {
+          args: Prisma.TrainingsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrainings>
+        }
+        groupBy: {
+          args: Prisma.TrainingsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrainingsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TrainingsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrainingsCountAggregateOutputType> | number
+        }
+      }
+    }
     Users: {
       payload: Prisma.$UsersPayload<ExtArgs>
       fields: Prisma.UsersFieldRefs
@@ -530,6 +605,17 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const TrainingsScalarFieldEnum = {
+  id: 'id',
+  days: 'days',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TrainingsScalarFieldEnum = (typeof TrainingsScalarFieldEnum)[keyof typeof TrainingsScalarFieldEnum]
+
+
 export const UsersScalarFieldEnum = {
   id: 'id',
   username: 'username',
@@ -538,6 +624,7 @@ export const UsersScalarFieldEnum = {
   subscription: 'subscription',
   role: 'role',
   sport: 'sport',
+  isSetUp: 'isSetUp',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -582,6 +669,20 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'TrainingDay[]'
+ */
+export type ListEnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TrainingDay'
+ */
+export type EnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -592,6 +693,13 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -759,6 +867,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
  */
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
+  trainings?: Prisma.TrainingsOmit
   users?: Prisma.UsersOmit
 }
 

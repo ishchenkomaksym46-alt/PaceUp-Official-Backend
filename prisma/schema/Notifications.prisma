@@ -1,0 +1,5 @@
+model Notifications {
+  id      String      @id     @default(cuid())
+  title   String
+
+}

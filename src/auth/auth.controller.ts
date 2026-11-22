@@ -103,7 +103,7 @@ export class AuthController {
   }
 
   @Post('signin')
-  async login(@Body() loginDto: LoginDto, @Res({ passthrough: true }) res: Response) {
+  async signin(@Body() loginDto: LoginDto, @Res({ passthrough: true }) res: Response) {
     const login = await this.authService.login(loginDto);
 
     if(login.status === 200) {

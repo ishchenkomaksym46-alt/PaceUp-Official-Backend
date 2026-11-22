@@ -1,11 +1,14 @@
 model Users {
-  id           String @id @default(cuid())
-  username     String @unique
-  email        String @unique
+  id           String  @id @default(cuid())
+  username     String  @unique
+  email        String  @unique
   password     String
-  subscription String @default("free")
-  role         String @default("user")
+  subscription String  @default("free")
+  role         String  @default("user")
   sport        String
+  isSetUp      Boolean @default(false)
+
+  TrainingDays Trainings[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

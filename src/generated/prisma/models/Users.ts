@@ -32,6 +32,7 @@ export type UsersMinAggregateOutputType = {
   subscription: string | null
   role: string | null
   sport: string | null
+  isSetUp: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -44,6 +45,7 @@ export type UsersMaxAggregateOutputType = {
   subscription: string | null
   role: string | null
   sport: string | null
+  isSetUp: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -56,6 +58,7 @@ export type UsersCountAggregateOutputType = {
   subscription: number
   role: number
   sport: number
+  isSetUp: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -70,6 +73,7 @@ export type UsersMinAggregateInputType = {
   subscription?: true
   role?: true
   sport?: true
+  isSetUp?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -82,6 +86,7 @@ export type UsersMaxAggregateInputType = {
   subscription?: true
   role?: true
   sport?: true
+  isSetUp?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -94,6 +99,7 @@ export type UsersCountAggregateInputType = {
   subscription?: true
   role?: true
   sport?: true
+  isSetUp?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -179,6 +185,7 @@ export type UsersGroupByOutputType = {
   subscription: string
   role: string
   sport: string
+  isSetUp: boolean
   createdAt: Date
   updatedAt: Date
   _count: UsersCountAggregateOutputType | null
@@ -212,8 +219,10 @@ export type UsersWhereInput = {
   subscription?: Prisma.StringFilter<"Users"> | string
   role?: Prisma.StringFilter<"Users"> | string
   sport?: Prisma.StringFilter<"Users"> | string
+  isSetUp?: Prisma.BoolFilter<"Users"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Users"> | Date | string
+  TrainingDays?: Prisma.TrainingsListRelationFilter
 }
 
 export type UsersOrderByWithRelationInput = {
@@ -224,8 +233,10 @@ export type UsersOrderByWithRelationInput = {
   subscription?: Prisma.SortOrder
   role?: Prisma.SortOrder
   sport?: Prisma.SortOrder
+  isSetUp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  TrainingDays?: Prisma.TrainingsOrderByRelationAggregateInput
 }
 
 export type UsersWhereUniqueInput = Prisma.AtLeast<{
@@ -239,8 +250,10 @@ export type UsersWhereUniqueInput = Prisma.AtLeast<{
   subscription?: Prisma.StringFilter<"Users"> | string
   role?: Prisma.StringFilter<"Users"> | string
   sport?: Prisma.StringFilter<"Users"> | string
+  isSetUp?: Prisma.BoolFilter<"Users"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Users"> | Date | string
+  TrainingDays?: Prisma.TrainingsListRelationFilter
 }, "id" | "username" | "email">
 
 export type UsersOrderByWithAggregationInput = {
@@ -251,6 +264,7 @@ export type UsersOrderByWithAggregationInput = {
   subscription?: Prisma.SortOrder
   role?: Prisma.SortOrder
   sport?: Prisma.SortOrder
+  isSetUp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UsersCountOrderByAggregateInput
@@ -269,6 +283,7 @@ export type UsersScalarWhereWithAggregatesInput = {
   subscription?: Prisma.StringWithAggregatesFilter<"Users"> | string
   role?: Prisma.StringWithAggregatesFilter<"Users"> | string
   sport?: Prisma.StringWithAggregatesFilter<"Users"> | string
+  isSetUp?: Prisma.BoolWithAggregatesFilter<"Users"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Users"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Users"> | Date | string
 }
@@ -281,8 +296,10 @@ export type UsersCreateInput = {
   subscription?: string
   role?: string
   sport: string
+  isSetUp?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  TrainingDays?: Prisma.TrainingsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateInput = {
@@ -293,8 +310,10 @@ export type UsersUncheckedCreateInput = {
   subscription?: string
   role?: string
   sport: string
+  isSetUp?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  TrainingDays?: Prisma.TrainingsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersUpdateInput = {
@@ -305,8 +324,10 @@ export type UsersUpdateInput = {
   subscription?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
   sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  TrainingDays?: Prisma.TrainingsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateInput = {
@@ -317,8 +338,10 @@ export type UsersUncheckedUpdateInput = {
   subscription?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
   sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  TrainingDays?: Prisma.TrainingsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateManyInput = {
@@ -329,6 +352,7 @@ export type UsersCreateManyInput = {
   subscription?: string
   role?: string
   sport: string
+  isSetUp?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -341,6 +365,7 @@ export type UsersUpdateManyMutationInput = {
   subscription?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
   sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -353,8 +378,14 @@ export type UsersUncheckedUpdateManyInput = {
   subscription?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
   sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type UsersScalarRelationFilter = {
+  is?: Prisma.UsersWhereInput
+  isNot?: Prisma.UsersWhereInput
 }
 
 export type UsersCountOrderByAggregateInput = {
@@ -365,6 +396,7 @@ export type UsersCountOrderByAggregateInput = {
   subscription?: Prisma.SortOrder
   role?: Prisma.SortOrder
   sport?: Prisma.SortOrder
+  isSetUp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -377,6 +409,7 @@ export type UsersMaxOrderByAggregateInput = {
   subscription?: Prisma.SortOrder
   role?: Prisma.SortOrder
   sport?: Prisma.SortOrder
+  isSetUp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -389,18 +422,126 @@ export type UsersMinOrderByAggregateInput = {
   subscription?: Prisma.SortOrder
   role?: Prisma.SortOrder
   sport?: Prisma.SortOrder
+  isSetUp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
+export type UsersCreateNestedOneWithoutTrainingDaysInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutTrainingDaysInput, Prisma.UsersUncheckedCreateWithoutTrainingDaysInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutTrainingDaysInput
+  connect?: Prisma.UsersWhereUniqueInput
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type UsersUpdateOneRequiredWithoutTrainingDaysNestedInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutTrainingDaysInput, Prisma.UsersUncheckedCreateWithoutTrainingDaysInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutTrainingDaysInput
+  upsert?: Prisma.UsersUpsertWithoutTrainingDaysInput
+  connect?: Prisma.UsersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutTrainingDaysInput, Prisma.UsersUpdateWithoutTrainingDaysInput>, Prisma.UsersUncheckedUpdateWithoutTrainingDaysInput>
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
+export type UsersCreateWithoutTrainingDaysInput = {
+  id?: string
+  username: string
+  email: string
+  password: string
+  subscription?: string
+  role?: string
+  sport: string
+  isSetUp?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type UsersUncheckedCreateWithoutTrainingDaysInput = {
+  id?: string
+  username: string
+  email: string
+  password: string
+  subscription?: string
+  role?: string
+  sport: string
+  isSetUp?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type UsersCreateOrConnectWithoutTrainingDaysInput = {
+  where: Prisma.UsersWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsersCreateWithoutTrainingDaysInput, Prisma.UsersUncheckedCreateWithoutTrainingDaysInput>
+}
+
+export type UsersUpsertWithoutTrainingDaysInput = {
+  update: Prisma.XOR<Prisma.UsersUpdateWithoutTrainingDaysInput, Prisma.UsersUncheckedUpdateWithoutTrainingDaysInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutTrainingDaysInput, Prisma.UsersUncheckedCreateWithoutTrainingDaysInput>
+  where?: Prisma.UsersWhereInput
+}
+
+export type UsersUpdateToOneWithWhereWithoutTrainingDaysInput = {
+  where?: Prisma.UsersWhereInput
+  data: Prisma.XOR<Prisma.UsersUpdateWithoutTrainingDaysInput, Prisma.UsersUncheckedUpdateWithoutTrainingDaysInput>
+}
+
+export type UsersUpdateWithoutTrainingDaysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  subscription?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type UsersUncheckedUpdateWithoutTrainingDaysInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  subscription?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type UsersCountOutputType
+ */
+
+export type UsersCountOutputType = {
+  TrainingDays: number
+}
+
+export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  TrainingDays?: boolean | UsersCountOutputTypeCountTrainingDaysArgs
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsersCountOutputType
+   */
+  select?: Prisma.UsersCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountTrainingDaysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrainingsWhereInput
+}
 
 
 export type UsersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -411,8 +552,11 @@ export type UsersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   subscription?: boolean
   role?: boolean
   sport?: boolean
+  isSetUp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  TrainingDays?: boolean | Prisma.Users$TrainingDaysArgs<ExtArgs>
+  _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
 export type UsersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -423,6 +567,7 @@ export type UsersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   subscription?: boolean
   role?: boolean
   sport?: boolean
+  isSetUp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["users"]>
@@ -435,6 +580,7 @@ export type UsersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   subscription?: boolean
   role?: boolean
   sport?: boolean
+  isSetUp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["users"]>
@@ -447,15 +593,24 @@ export type UsersSelectScalar = {
   subscription?: boolean
   role?: boolean
   sport?: boolean
+  isSetUp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UsersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "email" | "password" | "subscription" | "role" | "sport" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
+export type UsersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "email" | "password" | "subscription" | "role" | "sport" | "isSetUp" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
+export type UsersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  TrainingDays?: boolean | Prisma.Users$TrainingDaysArgs<ExtArgs>
+  _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type UsersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type UsersIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $UsersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Users"
-  objects: {}
+  objects: {
+    TrainingDays: Prisma.$TrainingsPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     username: string
@@ -464,6 +619,7 @@ export type $UsersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     subscription: string
     role: string
     sport: string
+    isSetUp: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["users"]>
@@ -860,6 +1016,7 @@ readonly fields: UsersFieldRefs;
  */
 export interface Prisma__UsersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  TrainingDays<T extends Prisma.Users$TrainingDaysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$TrainingDaysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrainingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -896,6 +1053,7 @@ export interface UsersFieldRefs {
   readonly subscription: Prisma.FieldRef<"Users", 'String'>
   readonly role: Prisma.FieldRef<"Users", 'String'>
   readonly sport: Prisma.FieldRef<"Users", 'String'>
+  readonly isSetUp: Prisma.FieldRef<"Users", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Users", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Users", 'DateTime'>
 }
@@ -915,6 +1073,10 @@ export type UsersFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * Filter, which Users to fetch.
    */
   where: Prisma.UsersWhereUniqueInput
@@ -933,6 +1095,10 @@ export type UsersFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * Filter, which Users to fetch.
    */
   where: Prisma.UsersWhereUniqueInput
@@ -950,6 +1116,10 @@ export type UsersFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Users
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
   /**
    * Filter, which Users to fetch.
    */
@@ -999,6 +1169,10 @@ export type UsersFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * Filter, which Users to fetch.
    */
   where?: Prisma.UsersWhereInput
@@ -1046,6 +1220,10 @@ export type UsersFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Users
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
   /**
    * Filter, which Users to fetch.
    */
@@ -1095,6 +1273,10 @@ export type UsersCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * The data needed to create a Users.
    */
   data: Prisma.XOR<Prisma.UsersCreateInput, Prisma.UsersUncheckedCreateInput>
@@ -1142,6 +1324,10 @@ export type UsersUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the Users
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
   /**
    * The data needed to update a Users.
    */
@@ -1209,6 +1395,10 @@ export type UsersUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * The filter to search for the Users to update in case it exists.
    */
   where: Prisma.UsersWhereUniqueInput
@@ -1235,6 +1425,10 @@ export type UsersDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
+  /**
    * Filter which Users to delete.
    */
   where: Prisma.UsersWhereUniqueInput
@@ -1255,6 +1449,30 @@ export type UsersDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
+ * Users.TrainingDays
+ */
+export type Users$TrainingDaysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Trainings
+   */
+  select?: Prisma.TrainingsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Trainings
+   */
+  omit?: Prisma.TrainingsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrainingsInclude<ExtArgs> | null
+  where?: Prisma.TrainingsWhereInput
+  orderBy?: Prisma.TrainingsOrderByWithRelationInput | Prisma.TrainingsOrderByWithRelationInput[]
+  cursor?: Prisma.TrainingsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrainingsScalarFieldEnum | Prisma.TrainingsScalarFieldEnum[]
+}
+
+/**
  * Users without action
  */
 export type UsersDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1266,4 +1484,8 @@ export type UsersDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Users
    */
   omit?: Prisma.UsersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersInclude<ExtArgs> | null
 }
