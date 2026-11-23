@@ -1,5 +1,13 @@
 model Notifications {
-  id      String      @id     @default(cuid())
-  title   String
+  id          String      @id     @default(cuid())
+  title       String
+  description String
+  userId      String
 
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("notifications")
 }

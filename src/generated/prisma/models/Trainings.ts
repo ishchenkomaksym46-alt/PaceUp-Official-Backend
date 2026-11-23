@@ -192,15 +192,15 @@ export type TrainingsOrderByWithRelationInput = {
 
 export type TrainingsWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  userId?: string
   AND?: Prisma.TrainingsWhereInput | Prisma.TrainingsWhereInput[]
   OR?: Prisma.TrainingsWhereInput[]
   NOT?: Prisma.TrainingsWhereInput | Prisma.TrainingsWhereInput[]
   days?: Prisma.EnumTrainingDayNullableListFilter<"Trainings">
-  userId?: Prisma.StringFilter<"Trainings"> | string
   createdAt?: Prisma.DateTimeFilter<"Trainings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Trainings"> | Date | string
   user?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
-}, "id">
+}, "id" | "userId">
 
 export type TrainingsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -323,17 +323,9 @@ export type TrainingsCreatedaysInput = {
   set: $Enums.TrainingDay[]
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
 export type TrainingsUpdatedaysInput = {
   set?: $Enums.TrainingDay[]
   push?: $Enums.TrainingDay | $Enums.TrainingDay[]
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
 }
 
 export type TrainingsCreateNestedManyWithoutUserInput = {

@@ -11,7 +11,7 @@ enum TrainingDay {
 model Trainings {
   id     String        @id @default(cuid())
   days   TrainingDay[]
-  userId String
+  userId String @unique
 
   user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
 

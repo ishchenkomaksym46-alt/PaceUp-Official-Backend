@@ -8,7 +8,8 @@ model Users {
   sport        String
   isSetUp      Boolean @default(false)
 
-  TrainingDays Trainings[]
+  TrainingDays  Trainings[]
+  Notifications Notifications[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

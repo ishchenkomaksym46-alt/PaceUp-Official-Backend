@@ -397,6 +397,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Notifications: 'Notifications',
   Trainings: 'Trainings',
   Users: 'Users'
 } as const
@@ -414,10 +415,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "trainings" | "users"
+    modelProps: "notifications" | "trainings" | "users"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Notifications: {
+      payload: Prisma.$NotificationsPayload<ExtArgs>
+      fields: Prisma.NotificationsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.NotificationsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.NotificationsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        findFirst: {
+          args: Prisma.NotificationsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.NotificationsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        findMany: {
+          args: Prisma.NotificationsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>[]
+        }
+        create: {
+          args: Prisma.NotificationsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        createMany: {
+          args: Prisma.NotificationsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.NotificationsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>[]
+        }
+        delete: {
+          args: Prisma.NotificationsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        update: {
+          args: Prisma.NotificationsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        deleteMany: {
+          args: Prisma.NotificationsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.NotificationsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.NotificationsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>[]
+        }
+        upsert: {
+          args: Prisma.NotificationsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NotificationsPayload>
+        }
+        aggregate: {
+          args: Prisma.NotificationsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateNotifications>
+        }
+        groupBy: {
+          args: Prisma.NotificationsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NotificationsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.NotificationsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NotificationsCountAggregateOutputType> | number
+        }
+      }
+    }
     Trainings: {
       payload: Prisma.$TrainingsPayload<ExtArgs>
       fields: Prisma.TrainingsFieldRefs
@@ -605,6 +680,18 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const NotificationsScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type NotificationsScalarFieldEnum = (typeof NotificationsScalarFieldEnum)[keyof typeof NotificationsScalarFieldEnum]
+
+
 export const TrainingsScalarFieldEnum = {
   id: 'id',
   days: 'days',
@@ -669,20 +756,6 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'TrainingDay[]'
- */
-export type ListEnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay[]'>
-    
-
-
-/**
- * Reference to a field of type 'TrainingDay'
- */
-export type EnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay'>
-    
-
-
-/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -693,6 +766,20 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TrainingDay[]'
+ */
+export type ListEnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TrainingDay'
+ */
+export type EnumTrainingDayFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TrainingDay'>
     
 
 
@@ -867,6 +954,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
  */
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
+  notifications?: Prisma.NotificationsOmit
   trainings?: Prisma.TrainingsOmit
   users?: Prisma.UsersOmit
 }
