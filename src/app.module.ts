@@ -4,6 +4,7 @@ import {PrismaService} from "./prisma.service.js";
 import {AuthModule} from "./auth/auth.module.js";
 import { UserModule } from './user/user.module.js';
 import { NotificationsModule } from './notifications/notifications.module.js';
+import { WorkoutsModule } from './workouts/workouts.module.js';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { NotificationsModule } from './notifications/notifications.module.js';
     AuthModule,
     UserModule,
     NotificationsModule,
+    WorkoutsModule,
   ],
   controllers: [],
   providers: [PrismaService],

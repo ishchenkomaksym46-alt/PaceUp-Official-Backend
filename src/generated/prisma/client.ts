@@ -56,3 +56,8 @@ export type Trainings = Prisma.TrainingsModel
  * 
  */
 export type Users = Prisma.UsersModel
+/**
+ * Model Workouts
+ * 
+ */
+export type Workouts = Prisma.WorkoutsModel

@@ -399,7 +399,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Notifications: 'Notifications',
   Trainings: 'Trainings',
-  Users: 'Users'
+  Users: 'Users',
+  Workouts: 'Workouts'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -415,7 +416,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "notifications" | "trainings" | "users"
+    modelProps: "notifications" | "trainings" | "users" | "workouts"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -641,6 +642,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Workouts: {
+      payload: Prisma.$WorkoutsPayload<ExtArgs>
+      fields: Prisma.WorkoutsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WorkoutsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WorkoutsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        findFirst: {
+          args: Prisma.WorkoutsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WorkoutsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        findMany: {
+          args: Prisma.WorkoutsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>[]
+        }
+        create: {
+          args: Prisma.WorkoutsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        createMany: {
+          args: Prisma.WorkoutsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WorkoutsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>[]
+        }
+        delete: {
+          args: Prisma.WorkoutsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        update: {
+          args: Prisma.WorkoutsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        deleteMany: {
+          args: Prisma.WorkoutsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WorkoutsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WorkoutsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>[]
+        }
+        upsert: {
+          args: Prisma.WorkoutsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkoutsPayload>
+        }
+        aggregate: {
+          args: Prisma.WorkoutsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWorkouts>
+        }
+        groupBy: {
+          args: Prisma.WorkoutsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkoutsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WorkoutsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkoutsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -717,6 +792,17 @@ export const UsersScalarFieldEnum = {
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const WorkoutsScalarFieldEnum = {
+  id: 'id',
+  trainingDescription: 'trainingDescription',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkoutsScalarFieldEnum = (typeof WorkoutsScalarFieldEnum)[keyof typeof WorkoutsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -957,6 +1043,7 @@ export type GlobalOmitConfig = {
   notifications?: Prisma.NotificationsOmit
   trainings?: Prisma.TrainingsOmit
   users?: Prisma.UsersOmit
+  workouts?: Prisma.WorkoutsOmit
 }
 
 /* Types for Logging */

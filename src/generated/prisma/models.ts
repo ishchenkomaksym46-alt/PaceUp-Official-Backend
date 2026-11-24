@@ -11,4 +11,5 @@
 export type * from './models/Notifications.js'
 export type * from './models/Trainings.js'
 export type * from './models/Users.js'
+export type * from './models/Workouts.js'
 export type * from './commonInputTypes.js'

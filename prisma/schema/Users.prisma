@@ -10,6 +10,7 @@ model Users {
 
   TrainingDays  Trainings[]
   Notifications Notifications[]
+  Workouts      Workouts[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
