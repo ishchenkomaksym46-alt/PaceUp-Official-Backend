@@ -1,5 +1,5 @@
 model Users {
-  id           String  @id @default(cuid())
+  id           String  @id @default(cuid(2))
   username     String  @unique
   email        String  @unique
   password     String
@@ -11,6 +11,7 @@ model Users {
   TrainingDays  Trainings[]
   Notifications Notifications[]
   Workouts      Workouts[]
+  Competitions  Competitions[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

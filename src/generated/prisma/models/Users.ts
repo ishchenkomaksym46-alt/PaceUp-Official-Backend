@@ -225,6 +225,7 @@ export type UsersWhereInput = {
   TrainingDays?: Prisma.TrainingsListRelationFilter
   Notifications?: Prisma.NotificationsListRelationFilter
   Workouts?: Prisma.WorkoutsListRelationFilter
+  Competitions?: Prisma.CompetitionsListRelationFilter
 }
 
 export type UsersOrderByWithRelationInput = {
@@ -241,6 +242,7 @@ export type UsersOrderByWithRelationInput = {
   TrainingDays?: Prisma.TrainingsOrderByRelationAggregateInput
   Notifications?: Prisma.NotificationsOrderByRelationAggregateInput
   Workouts?: Prisma.WorkoutsOrderByRelationAggregateInput
+  Competitions?: Prisma.CompetitionsOrderByRelationAggregateInput
 }
 
 export type UsersWhereUniqueInput = Prisma.AtLeast<{
@@ -260,6 +262,7 @@ export type UsersWhereUniqueInput = Prisma.AtLeast<{
   TrainingDays?: Prisma.TrainingsListRelationFilter
   Notifications?: Prisma.NotificationsListRelationFilter
   Workouts?: Prisma.WorkoutsListRelationFilter
+  Competitions?: Prisma.CompetitionsListRelationFilter
 }, "id" | "username" | "email">
 
 export type UsersOrderByWithAggregationInput = {
@@ -308,6 +311,7 @@ export type UsersCreateInput = {
   TrainingDays?: Prisma.TrainingsCreateNestedManyWithoutUserInput
   Notifications?: Prisma.NotificationsCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateInput = {
@@ -324,6 +328,7 @@ export type UsersUncheckedCreateInput = {
   TrainingDays?: Prisma.TrainingsUncheckedCreateNestedManyWithoutUserInput
   Notifications?: Prisma.NotificationsUncheckedCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsUncheckedCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersUpdateInput = {
@@ -340,6 +345,7 @@ export type UsersUpdateInput = {
   TrainingDays?: Prisma.TrainingsUpdateManyWithoutUserNestedInput
   Notifications?: Prisma.NotificationsUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateInput = {
@@ -356,6 +362,7 @@ export type UsersUncheckedUpdateInput = {
   TrainingDays?: Prisma.TrainingsUncheckedUpdateManyWithoutUserNestedInput
   Notifications?: Prisma.NotificationsUncheckedUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUncheckedUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateManyInput = {
@@ -441,6 +448,20 @@ export type UsersMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
+export type UsersCreateNestedOneWithoutCompetitionsInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutCompetitionsInput, Prisma.UsersUncheckedCreateWithoutCompetitionsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutCompetitionsInput
+  connect?: Prisma.UsersWhereUniqueInput
+}
+
+export type UsersUpdateOneRequiredWithoutCompetitionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutCompetitionsInput, Prisma.UsersUncheckedCreateWithoutCompetitionsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutCompetitionsInput
+  upsert?: Prisma.UsersUpsertWithoutCompetitionsInput
+  connect?: Prisma.UsersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutCompetitionsInput, Prisma.UsersUpdateWithoutCompetitionsInput>, Prisma.UsersUncheckedUpdateWithoutCompetitionsInput>
+}
+
 export type UsersCreateNestedOneWithoutNotificationsInput = {
   create?: Prisma.XOR<Prisma.UsersCreateWithoutNotificationsInput, Prisma.UsersUncheckedCreateWithoutNotificationsInput>
   connectOrCreate?: Prisma.UsersCreateOrConnectWithoutNotificationsInput
@@ -487,6 +508,86 @@ export type UsersUpdateOneRequiredWithoutWorkoutsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutWorkoutsInput, Prisma.UsersUpdateWithoutWorkoutsInput>, Prisma.UsersUncheckedUpdateWithoutWorkoutsInput>
 }
 
+export type UsersCreateWithoutCompetitionsInput = {
+  id?: string
+  username: string
+  email: string
+  password: string
+  subscription?: string
+  role?: string
+  sport: string
+  isSetUp?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  TrainingDays?: Prisma.TrainingsCreateNestedManyWithoutUserInput
+  Notifications?: Prisma.NotificationsCreateNestedManyWithoutUserInput
+  Workouts?: Prisma.WorkoutsCreateNestedManyWithoutUserInput
+}
+
+export type UsersUncheckedCreateWithoutCompetitionsInput = {
+  id?: string
+  username: string
+  email: string
+  password: string
+  subscription?: string
+  role?: string
+  sport: string
+  isSetUp?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  TrainingDays?: Prisma.TrainingsUncheckedCreateNestedManyWithoutUserInput
+  Notifications?: Prisma.NotificationsUncheckedCreateNestedManyWithoutUserInput
+  Workouts?: Prisma.WorkoutsUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UsersCreateOrConnectWithoutCompetitionsInput = {
+  where: Prisma.UsersWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsersCreateWithoutCompetitionsInput, Prisma.UsersUncheckedCreateWithoutCompetitionsInput>
+}
+
+export type UsersUpsertWithoutCompetitionsInput = {
+  update: Prisma.XOR<Prisma.UsersUpdateWithoutCompetitionsInput, Prisma.UsersUncheckedUpdateWithoutCompetitionsInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutCompetitionsInput, Prisma.UsersUncheckedCreateWithoutCompetitionsInput>
+  where?: Prisma.UsersWhereInput
+}
+
+export type UsersUpdateToOneWithWhereWithoutCompetitionsInput = {
+  where?: Prisma.UsersWhereInput
+  data: Prisma.XOR<Prisma.UsersUpdateWithoutCompetitionsInput, Prisma.UsersUncheckedUpdateWithoutCompetitionsInput>
+}
+
+export type UsersUpdateWithoutCompetitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  subscription?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  TrainingDays?: Prisma.TrainingsUpdateManyWithoutUserNestedInput
+  Notifications?: Prisma.NotificationsUpdateManyWithoutUserNestedInput
+  Workouts?: Prisma.WorkoutsUpdateManyWithoutUserNestedInput
+}
+
+export type UsersUncheckedUpdateWithoutCompetitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  subscription?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  sport?: Prisma.StringFieldUpdateOperationsInput | string
+  isSetUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  TrainingDays?: Prisma.TrainingsUncheckedUpdateManyWithoutUserNestedInput
+  Notifications?: Prisma.NotificationsUncheckedUpdateManyWithoutUserNestedInput
+  Workouts?: Prisma.WorkoutsUncheckedUpdateManyWithoutUserNestedInput
+}
+
 export type UsersCreateWithoutNotificationsInput = {
   id?: string
   username: string
@@ -500,6 +601,7 @@ export type UsersCreateWithoutNotificationsInput = {
   updatedAt?: Date | string
   TrainingDays?: Prisma.TrainingsCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateWithoutNotificationsInput = {
@@ -515,6 +617,7 @@ export type UsersUncheckedCreateWithoutNotificationsInput = {
   updatedAt?: Date | string
   TrainingDays?: Prisma.TrainingsUncheckedCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsUncheckedCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersCreateOrConnectWithoutNotificationsInput = {
@@ -546,6 +649,7 @@ export type UsersUpdateWithoutNotificationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   TrainingDays?: Prisma.TrainingsUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutNotificationsInput = {
@@ -561,6 +665,7 @@ export type UsersUncheckedUpdateWithoutNotificationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   TrainingDays?: Prisma.TrainingsUncheckedUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUncheckedUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateWithoutTrainingDaysInput = {
@@ -576,6 +681,7 @@ export type UsersCreateWithoutTrainingDaysInput = {
   updatedAt?: Date | string
   Notifications?: Prisma.NotificationsCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateWithoutTrainingDaysInput = {
@@ -591,6 +697,7 @@ export type UsersUncheckedCreateWithoutTrainingDaysInput = {
   updatedAt?: Date | string
   Notifications?: Prisma.NotificationsUncheckedCreateNestedManyWithoutUserInput
   Workouts?: Prisma.WorkoutsUncheckedCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersCreateOrConnectWithoutTrainingDaysInput = {
@@ -622,6 +729,7 @@ export type UsersUpdateWithoutTrainingDaysInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Notifications?: Prisma.NotificationsUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutTrainingDaysInput = {
@@ -637,6 +745,7 @@ export type UsersUncheckedUpdateWithoutTrainingDaysInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Notifications?: Prisma.NotificationsUncheckedUpdateManyWithoutUserNestedInput
   Workouts?: Prisma.WorkoutsUncheckedUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateWithoutWorkoutsInput = {
@@ -652,6 +761,7 @@ export type UsersCreateWithoutWorkoutsInput = {
   updatedAt?: Date | string
   TrainingDays?: Prisma.TrainingsCreateNestedManyWithoutUserInput
   Notifications?: Prisma.NotificationsCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateWithoutWorkoutsInput = {
@@ -667,6 +777,7 @@ export type UsersUncheckedCreateWithoutWorkoutsInput = {
   updatedAt?: Date | string
   TrainingDays?: Prisma.TrainingsUncheckedCreateNestedManyWithoutUserInput
   Notifications?: Prisma.NotificationsUncheckedCreateNestedManyWithoutUserInput
+  Competitions?: Prisma.CompetitionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersCreateOrConnectWithoutWorkoutsInput = {
@@ -698,6 +809,7 @@ export type UsersUpdateWithoutWorkoutsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   TrainingDays?: Prisma.TrainingsUpdateManyWithoutUserNestedInput
   Notifications?: Prisma.NotificationsUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutWorkoutsInput = {
@@ -713,6 +825,7 @@ export type UsersUncheckedUpdateWithoutWorkoutsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   TrainingDays?: Prisma.TrainingsUncheckedUpdateManyWithoutUserNestedInput
   Notifications?: Prisma.NotificationsUncheckedUpdateManyWithoutUserNestedInput
+  Competitions?: Prisma.CompetitionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -724,12 +837,14 @@ export type UsersCountOutputType = {
   TrainingDays: number
   Notifications: number
   Workouts: number
+  Competitions: number
 }
 
 export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   TrainingDays?: boolean | UsersCountOutputTypeCountTrainingDaysArgs
   Notifications?: boolean | UsersCountOutputTypeCountNotificationsArgs
   Workouts?: boolean | UsersCountOutputTypeCountWorkoutsArgs
+  Competitions?: boolean | UsersCountOutputTypeCountCompetitionsArgs
 }
 
 /**
@@ -763,6 +878,13 @@ export type UsersCountOutputTypeCountWorkoutsArgs<ExtArgs extends runtime.Types.
   where?: Prisma.WorkoutsWhereInput
 }
 
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountCompetitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CompetitionsWhereInput
+}
+
 
 export type UsersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -778,6 +900,7 @@ export type UsersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   TrainingDays?: boolean | Prisma.Users$TrainingDaysArgs<ExtArgs>
   Notifications?: boolean | Prisma.Users$NotificationsArgs<ExtArgs>
   Workouts?: boolean | Prisma.Users$WorkoutsArgs<ExtArgs>
+  Competitions?: boolean | Prisma.Users$CompetitionsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
@@ -825,6 +948,7 @@ export type UsersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   TrainingDays?: boolean | Prisma.Users$TrainingDaysArgs<ExtArgs>
   Notifications?: boolean | Prisma.Users$NotificationsArgs<ExtArgs>
   Workouts?: boolean | Prisma.Users$WorkoutsArgs<ExtArgs>
+  Competitions?: boolean | Prisma.Users$CompetitionsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UsersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -836,6 +960,7 @@ export type $UsersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     TrainingDays: Prisma.$TrainingsPayload<ExtArgs>[]
     Notifications: Prisma.$NotificationsPayload<ExtArgs>[]
     Workouts: Prisma.$WorkoutsPayload<ExtArgs>[]
+    Competitions: Prisma.$CompetitionsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1245,6 +1370,7 @@ export interface Prisma__UsersClient<T, Null = never, ExtArgs extends runtime.Ty
   TrainingDays<T extends Prisma.Users$TrainingDaysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$TrainingDaysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrainingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Notifications<T extends Prisma.Users$NotificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$NotificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Workouts<T extends Prisma.Users$WorkoutsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$WorkoutsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkoutsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Competitions<T extends Prisma.Users$CompetitionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$CompetitionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CompetitionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1746,6 +1872,30 @@ export type Users$WorkoutsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.WorkoutsScalarFieldEnum | Prisma.WorkoutsScalarFieldEnum[]
+}
+
+/**
+ * Users.Competitions
+ */
+export type Users$CompetitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Competitions
+   */
+  select?: Prisma.CompetitionsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Competitions
+   */
+  omit?: Prisma.CompetitionsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CompetitionsInclude<ExtArgs> | null
+  where?: Prisma.CompetitionsWhereInput
+  orderBy?: Prisma.CompetitionsOrderByWithRelationInput | Prisma.CompetitionsOrderByWithRelationInput[]
+  cursor?: Prisma.CompetitionsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CompetitionsScalarFieldEnum | Prisma.CompetitionsScalarFieldEnum[]
 }
 
 /**

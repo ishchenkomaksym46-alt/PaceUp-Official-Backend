@@ -1,0 +1,15 @@
+model Competitions {
+  id        String @id @default(cuid(2))
+  name      String
+  distances Json
+  date      String
+  type      String
+  userId    String
+
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("competitions")
+}

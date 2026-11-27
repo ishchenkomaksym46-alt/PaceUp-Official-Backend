@@ -5,6 +5,8 @@ import {AuthModule} from "./auth/auth.module.js";
 import { UserModule } from './user/user.module.js';
 import { NotificationsModule } from './notifications/notifications.module.js';
 import { WorkoutsModule } from './workouts/workouts.module.js';
+import { RacesModule } from './races/races.module.js';
+import { MonitoringModule } from './monitoring/monitoring.module.js';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { WorkoutsModule } from './workouts/workouts.module.js';
     UserModule,
     NotificationsModule,
     WorkoutsModule,
+    RacesModule,
+    MonitoringModule,
   ],
   controllers: [],
   providers: [PrismaService],

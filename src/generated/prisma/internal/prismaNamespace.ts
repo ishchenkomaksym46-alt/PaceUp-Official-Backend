@@ -397,6 +397,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Competitions: 'Competitions',
   Notifications: 'Notifications',
   Trainings: 'Trainings',
   Users: 'Users',
@@ -416,10 +417,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "notifications" | "trainings" | "users" | "workouts"
+    modelProps: "competitions" | "notifications" | "trainings" | "users" | "workouts"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Competitions: {
+      payload: Prisma.$CompetitionsPayload<ExtArgs>
+      fields: Prisma.CompetitionsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CompetitionsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CompetitionsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        findFirst: {
+          args: Prisma.CompetitionsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CompetitionsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        findMany: {
+          args: Prisma.CompetitionsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>[]
+        }
+        create: {
+          args: Prisma.CompetitionsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        createMany: {
+          args: Prisma.CompetitionsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CompetitionsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>[]
+        }
+        delete: {
+          args: Prisma.CompetitionsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        update: {
+          args: Prisma.CompetitionsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        deleteMany: {
+          args: Prisma.CompetitionsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CompetitionsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CompetitionsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>[]
+        }
+        upsert: {
+          args: Prisma.CompetitionsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompetitionsPayload>
+        }
+        aggregate: {
+          args: Prisma.CompetitionsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCompetitions>
+        }
+        groupBy: {
+          args: Prisma.CompetitionsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompetitionsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CompetitionsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompetitionsCountAggregateOutputType> | number
+        }
+      }
+    }
     Notifications: {
       payload: Prisma.$NotificationsPayload<ExtArgs>
       fields: Prisma.NotificationsFieldRefs
@@ -755,6 +830,20 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const CompetitionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  distances: 'distances',
+  date: 'date',
+  type: 'type',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CompetitionsScalarFieldEnum = (typeof CompetitionsScalarFieldEnum)[keyof typeof CompetitionsScalarFieldEnum]
+
+
 export const NotificationsScalarFieldEnum = {
   id: 'id',
   title: 'title',
@@ -813,12 +902,28 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
 
@@ -838,6 +943,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -1040,6 +1159,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
  */
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
+  competitions?: Prisma.CompetitionsOmit
   notifications?: Prisma.NotificationsOmit
   trainings?: Prisma.TrainingsOmit
   users?: Prisma.UsersOmit
